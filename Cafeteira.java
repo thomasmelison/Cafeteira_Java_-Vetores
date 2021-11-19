@@ -1,5 +1,6 @@
 import java.util.Scanner;
-/** O CERTO
+/** O CERTOf
+ * 
  * Cafeteira
  * A classe cafeteira é uma classe que simula uma cafeteira que utiliza capsulas;
  * O atributo liga_desliga diz se a cafeteira está ligada ou não
@@ -56,7 +57,6 @@ public class Cafeteira {
     public String[] getSabores(){
         return sabores;
     }
-
     public boolean seleciona_sabor(String sabor){
         boolean sabor_valido = false;
         for(int i = 0 ; i < sabores.length; i++){
