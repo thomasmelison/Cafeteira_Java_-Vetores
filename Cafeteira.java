@@ -17,6 +17,11 @@ public class Cafeteira {
     String sabor_escolhido;
     int quantidade_agua_cafe;
 
+    //provisorio
+    public int getnivelagua(){
+        return nivel_agua;
+    }
+
     //CRIA A CAFETEIRA--------------------------------------------------
     public Cafeteira(){
         botao_on_off = true;
@@ -89,10 +94,7 @@ public class Cafeteira {
         return "Café " + sabor_escolhido + " de " + quantidade_agua_cafe + "ml pronto!";
     }
 
-    // reseta a configuração
-    public void resetConfig(){
-        quantidade_agua_cafe = 0;
-        sabor_escolhido = null;
-    }
+    
+   
 
 }

@@ -103,7 +103,6 @@ public class Demonstracao_Cafeteira {
                 }
             
                 System.out.println(cafeteira.fazer_café());
-                cafeteira.resetConfig();
             }
             else if(opcao == 6){
                 System.out.println("Fechando o programa...\n");
