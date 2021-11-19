@@ -1,5 +1,5 @@
 import java.util.Scanner;
-/**
+/** O CERTO
  * Cafeteira
  * A classe cafeteira é uma classe que simula uma cafeteira que utiliza capsulas;
  * O atributo liga_desliga diz se a cafeteira está ligada ou não
@@ -16,24 +16,12 @@ public class Cafeteira {
     String sabor_escolhido;
     int quantidade_agua_cafe;
 
-    //inicia sem agua
+    //CRIA A CAFETEIRA--------------------------------------------------
     public Cafeteira(){
-        System.out.println("Cafeteira Criada!");
         botao_on_off = true;
         nivel_agua = 0;
     }
-
-    // inicia com agua
-    public Cafeteira(int nivel_agua){
-        System.out.println("Cafeteira Criada!");
-        botao_on_off = true;
-        if(nivel_agua > 500){
-            nivel_agua = 500;
-            System.out.println("Repositorio de Agua Cheio!");
-        }
-        this.nivel_agua = nivel_agua ;
-    }
-
+    // LIGA E DESLIGA A CAFETEIRA---------------------------------------
     public void on_off(){
         botao_on_off = !botao_on_off;
     }
@@ -42,18 +30,7 @@ public class Cafeteira {
         return botao_on_off;
     }
 
-    // pode nao digitar um int
-    public void seleciona_nivel_café(){
-        System.out.println("Selecione o nível do café:");
-        for(int i = 1; i <= nivel_cafe.length ; i++){
-            System.out.printf("Nivel %d : %dml\n", i , nivel_cafe[i-1] );
-        }
-        Scanner teclado = new Scanner(System.in);
-        System.out.print("Digite o nível: ");
-        int nivel_escolhido = teclado.nextInt();
-        quantidade_agua_cafe = nivel_cafe[nivel_escolhido];
-    }
-
+    // ADICIONA AGUA ---------------------------------------------------
     public int adiciona_Agua(int agua_adicionada){
         if(nivel_agua + agua_adicionada > 500){
             System.out.println("Repositório de Agua Cheio!");
@@ -64,16 +41,52 @@ public class Cafeteira {
         return nivel_agua;
     }
 
-    public void fazer_café(Double sabor_escolhido,int nivel_cafe_escolhido ){
-        
-        if(nivel_cafe_escolhido < 0){
-            System.out.println("Agua insuficiente para fazer o café!");
-            nivel_agua = nivel_agua + nivel_cafe_escolhido*20;
-            return;
+
+
+    //MOVIMENTACAO DE NIVEIS DO CAFE ------------------------------------------
+    public int[] getNiveisCafe(){
+        return nivel_cafe;
+    }
+
+    public void seleciona_nivel_cafe(int nivel_cafe){
+        quantidade_agua_cafe = this.nivel_cafe[nivel_cafe];
+    }
+
+    // movimentacao dos sabores --------------------------------------------------------
+    public String[] getSabores(){
+        return sabores;
+    }
+
+    public boolean seleciona_sabor(String sabor){
+        boolean sabor_valido = false;
+        for(int i = 0 ; i < sabores.length; i++){
+            if(sabor.equals( sabores[i] ) ){
+                sabor_valido = true;
+                break;
+            }
         }
+        if(sabor_valido == false){
+            System.out.println("Sabor Inválido");
+            return false;
+        }
+        sabor_escolhido = sabor;
+        return true;
+    }
+    
+    //Faz o cafe
+    public String fazer_café(){
+        if(nivel_agua - quantidade_agua_cafe < 0){
+            System.out.println("Agua insuficiente para fazer o café!");
+            return "Não foi possível fazer o café... tente adicionar mais água";
+        }
+        nivel_agua = nivel_agua - quantidade_agua_cafe;
+        return "Café " + sabor_escolhido + " de " + quantidade_agua_cafe + "ml pronto!";
+    }
 
-
-        
+    // reseta a configuração
+    public void resetConfig(){
+        quantidade_agua_cafe = 0;
+        sabor_escolhido = null;
     }
 
 }
