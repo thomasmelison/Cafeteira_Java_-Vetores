@@ -43,7 +43,7 @@ public class Demonstracao_Cafeteira {
                 System.out.print("Digite o quanto de agua deseja adicionar (em ml): ");
                 is_it_Int(teclado);
                 int agua_adicionada = teclado.nextInt();
-                System.out.printf("O repositório tem %dml\n",cafeteira.adiciona_Agua(agua_adicionada));
+                System.out.printf("O repositório tem %d ml\n",cafeteira.adiciona_Agua(agua_adicionada));
             }
 
             // Opção 3 Seleciona o sabor do café a ser feito

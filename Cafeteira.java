@@ -15,12 +15,12 @@ import java.util.Scanner;
  */
 public class Cafeteira {
 
-    boolean botao_on_off;
-    int nivel_agua;
-    final String sabores[] = {"EXPRESSO", "MOCCHA", "DESCAFEINADO", "CAPUCCINO"};
-    int[] nivel_cafe = {25,50,75,100,125};
-    String sabor_escolhido;
-    int quantidade_agua_cafe;
+    private boolean botao_on_off;
+    private int nivel_agua;
+    private final String sabores[] = {"EXPRESSO", "MOCCHA", "DESCAFEINADO", "CAPUCCINO"};
+    private final int[] nivel_cafe = {25,50,75,100,125};
+    private String sabor_escolhido;
+    private int quantidade_agua_cafe;
 
 
     /**
@@ -132,7 +132,7 @@ public class Cafeteira {
             return "Não foi possível fazer o café... tente adicionar mais água";
         }
         nivel_agua = nivel_agua - quantidade_agua_cafe;
-        return "Café " + sabor_escolhido + " de " + quantidade_agua_cafe + "ml pronto!";
+        return "Café " + sabor_escolhido + " de " + quantidade_agua_cafe + " ml pronto!";
     }
    
 

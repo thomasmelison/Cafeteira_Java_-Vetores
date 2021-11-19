@@ -5,7 +5,7 @@
 
 public class VetorInt {
     
-    int[] vetor;
+    private int[] vetor;
     
     
     /**
