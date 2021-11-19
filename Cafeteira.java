@@ -52,10 +52,16 @@ public class Cafeteira {
     public void seleciona_nivel_cafe(int nivel_cafe){
         quantidade_agua_cafe = this.nivel_cafe[nivel_cafe];
     }
+    public int getquantidadeAguaCafe(){
+        return quantidade_agua_cafe;
+    }
 
     // movimentacao dos sabores --------------------------------------------------------
     public String[] getSabores(){
         return sabores;
+    }
+    public String getSaborEscolhido(){
+        return sabor_escolhido;
     }
     public boolean seleciona_sabor(String sabor){
         boolean sabor_valido = false;
