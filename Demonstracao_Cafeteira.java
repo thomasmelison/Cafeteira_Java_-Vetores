@@ -56,10 +56,29 @@ public class Demonstracao_Cafeteira {
                 System.out.printf("Sabor selecionado: %s\n",sabor);
             }
             else if(opcao == 4){
+                if(!cafeteira.get_on_off()){
+                    System.out.println("Ligue a cafeteira primeiro!");
+                    continue;
+                }
+                int[] niveis_cafe = cafeteira.getNiveisCafe();
+                System.out.println("Selecione o tamanho do café:");
+                for(int i = 0; i < niveis_cafe.length;i++){
+                    System.out.printf("%d - %d ml. \n",i + 1,niveis_cafe[i]);
+                }
+                //problema 2
+                int index_nivel = teclado.nextInt();
+                cafeteira.seleciona_nivel_cafe(index_nivel - 1);
+                System.out.printf("Tamanho selecionado : %d ml\n",niveis_cafe[index_nivel - 1]);
 
             }
             else if(opcao == 5){
-                
+                if(!cafeteira.get_on_off()){
+                    System.out.println("Ligue a cafeteira primeiro!");
+                    continue;
+                }
+            
+                System.out.println(cafeteira.fazer_café());
+                cafeteira.resetConfig();
             }
             else if(opcao == 6){
                 System.out.println("Fechando o programa...\n");
