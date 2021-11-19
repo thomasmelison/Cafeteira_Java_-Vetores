@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class Cafeteira {
 
     boolean botao_on_off;
-    double nivel_agua;
+    int nivel_agua;
     final String sabores[] = {"EXPRESSO", "MOCCHA", "DESCAFEINADO", "CAPUCCINO"};
     int[] nivel_cafe = {25,50,75,100,125};
     String sabor_escolhido;
@@ -20,15 +20,15 @@ public class Cafeteira {
     public Cafeteira(){
         System.out.println("Cafeteira Criada!");
         botao_on_off = true;
-        nivel_agua = 0.0;
+        nivel_agua = 0;
     }
 
     // inicia com agua
-    public Cafeteira(double nivel_agua){
+    public Cafeteira(int nivel_agua){
         System.out.println("Cafeteira Criada!");
         botao_on_off = true;
-        if(nivel_agua > 500.0){
-            nivel_agua = 500.0;
+        if(nivel_agua > 500){
+            nivel_agua = 500;
             System.out.println("Repositorio de Agua Cheio!");
         }
         this.nivel_agua = nivel_agua ;
@@ -36,6 +36,10 @@ public class Cafeteira {
 
     public void on_off(){
         botao_on_off = !botao_on_off;
+    }
+
+    public boolean get_on_off(){
+        return botao_on_off;
     }
 
     // pode nao digitar um int
@@ -50,13 +54,14 @@ public class Cafeteira {
         quantidade_agua_cafe = nivel_cafe[nivel_escolhido];
     }
 
-    public void adiciona_Agua(double agua_adicionada){
+    public int adiciona_Agua(int agua_adicionada){
         if(nivel_agua + agua_adicionada > 500){
             System.out.println("Repositório de Agua Cheio!");
             nivel_agua = 500;
-            return;
+            return nivel_agua;
         }
         nivel_agua = nivel_agua + agua_adicionada;
+        return nivel_agua;
     }
 
     public void fazer_café(Double sabor_escolhido,int nivel_cafe_escolhido ){
